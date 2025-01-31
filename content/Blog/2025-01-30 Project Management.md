@@ -5,6 +5,7 @@ draft: false
 tags:
   - project-management
   - leadership
+  - blog-post
 ---
 
 > [!warning] WIP
