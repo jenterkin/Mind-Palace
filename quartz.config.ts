@@ -6,10 +6,15 @@ import * as Plugin from "./quartz/plugins"
  *
  * See https://quartz.jzhao.xyz/configuration for more information.
  */
+
+const staticRoot = "static"
+
 const config: QuartzConfig = {
   configuration: {
     pageTitle: "🏠",
     pageTitleSuffix: "",
+    staticRoot,
+    faviconPath: `${staticRoot}/favicon.svg`,
     enableSPA: true,
     enablePopovers: true,
     analytics: {
@@ -17,7 +22,12 @@ const config: QuartzConfig = {
     },
     locale: "en-US",
     baseUrl: "buildbetter.boats",
-    ignorePatterns: ["private", "templates", ".obsidian"],
+    ignorePatterns: [
+      "private",
+      "templates",
+      ".obsidian",
+      "zz-Templater"
+    ],
     defaultDateType: "created",
     generateSocialImages: false,
     theme: {
