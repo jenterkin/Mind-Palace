@@ -23,13 +23,15 @@ import DepGraph from "../../depgraph"
 
 interface FolderPageOptions extends FullPageLayout {
   sort?: (f1: QuartzPluginData, f2: QuartzPluginData) => number
+  showFolderCount?: boolean
 }
 
 export const FolderPage: QuartzEmitterPlugin<Partial<FolderPageOptions>> = (userOpts) => {
+  console.log(userOpts);
   const opts: FullPageLayout = {
     ...sharedPageComponents,
     ...defaultListPageLayout,
-    pageBody: FolderContent({ sort: userOpts?.sort }),
+    pageBody: FolderContent({ sort: userOpts?.sort, showFolderCount: userOpts?.showFolderCount }),
     ...userOpts,
   }
 

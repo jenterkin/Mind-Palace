@@ -8,7 +8,7 @@ import * as Plugin from "./quartz/plugins"
  */
 const config: QuartzConfig = {
   configuration: {
-    pageTitle: "🪴 Quartz 4.0",
+    pageTitle: "🏠",
     pageTitleSuffix: "",
     enableSPA: true,
     enablePopovers: true,
@@ -79,7 +79,7 @@ const config: QuartzConfig = {
       Plugin.AliasRedirects(),
       Plugin.ComponentResources(),
       Plugin.ContentPage(),
-      Plugin.FolderPage(),
+      Plugin.FolderPage({ showFolderCount: false }),
       Plugin.TagPage(),
       Plugin.ContentIndex({
         enableSiteMap: true,
