@@ -1,0 +1,19 @@
+- [ ] Actually write [[/About/Me]]
+	- Personal and professional background
+	- Contact info? Where should I put that?
+		- [[Me|About me]]?
+		- [[Rework Home Button into Home Bar|Home bar]]?
+		- Footer?
+		- A combination?
+- [ ] Add `Why?` section to [[/About/The Site]]
+	- What is the point of this?
+		- Sharing thoughts
+		- Self-expression
+		- Experimentation
+			- [ ] Create `Experiments` folder
+				- Holds notes of experiments
+					- Description
+					- Why
+					- Learnings
+					- Ongoing
+				- index.md should point to [[/About/The Site]] > why > experimentation

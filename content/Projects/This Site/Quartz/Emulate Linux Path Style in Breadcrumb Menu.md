@@ -5,7 +5,7 @@ permalink: 58114579-8F36-49BE-A175-B2536457C1AF
 draft: false
 date: 2025-01-31
 tags:
-  - project/site/quartz/visual
+  - projects/site/quartz
 ---
 I want the breadcrumb menu to look like a Linux path. All that needs to happen here is
 - Adding `~/` to the beginning of the menu

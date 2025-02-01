@@ -1,0 +1,174 @@
+---
+title: Project Template
+description: 
+permalink: 217dd644-4c51-47ac-b977-6e6d74e15986
+draft: false
+date: 2025-01-31
+tags:
+  - projects/site/obsidian
+cssclasses: []
+---
+
+# The problem
+
+Obsidian doesn't have a system for managing and tracking projects, which is great because I chose it for its' ability to be simultaneously simple and incredibly flexible.
+
+# The goals
+
+## Have a standardized project structure
+
+I would like every project to have the same structure for two reasons:
+- I find that the more I can assume, the lower my cognitive load
+- I can take advantage of standardization in Obsidian automation
+
+## Have baked-in views for each project
+
+Every project will, depending on how far along it gets, have:
+- Planning
+- Requirements
+- Tasks
+- A work log
+- Learnings
+- A retrospective
+
+For organizational and technical[^technical-reasons] reasons a project will be split into multiple notes. As-is, this would require me to go to where the tasks are defined to see what's left to work on in a project or go to the `Learnings` page to view its' content.
+
+Ideally I would be able to gather standard information and display it, as you can with the [Dataview](https://blacksmithgu.github.io/obsidian-dataview/) plugin, in convenient locations.
+
+## Have an automated flow
+
+I do not want to manually create files, folders, frontmatter, etc. This should be done with templating.
+
+## Out-of-the-box discoverability
+
+I want projects to be immediately discoverable. The `Explore` section of the site is already a bit much, so more here is needed.
+
+# The solution
+
+## Concepts
+
+### Project Group Tags
+
+Project Group Tags are meant for discoverability through tag list views and inferring the [[#Project Tags]] of [[#Projects]].
+
+They are set on [[#Project Groups]] and their values are inferred by the Project Group hierarchy, including itself. Project group tags start with the `#project-groups/` tag, and each level is the name of the next Project Group in the hierarchy, lowercased with spaces replaced by dashes.
+
+```example
+All folders under `Projects` are Project Groups
+.
+└── Projects
+    └── A
+        └── B with Spaces
+```
+
+Given the example above, the Project Group Tags would be
+
+| Project Group | Project Group Tag               |
+| ------------- | ------------------------------- |
+| A             | `#project-groups/a`             |
+| B with Spaces | `#project-groups/b-with-spaces` |
+
+### Project Tags
+
+Project Tags are meant for discoverability through tag list views.
+
+They are set on [[#Projects]] and their values are inferred by the [[#Project Groups|Project Group]] hierarchy. The root tag is comprised of three parts:
+1. **The root**
+	- `#projects/`
+2. **The Projects' Project Groups' Project Group Tag children**
+	- Everything after `#project-groups/`
+3. **The Projects' name, lowercased with spaces replaced with dashes**
+
+```example
+The `A` and `B with Spaces` folders are Project Groups
+The `My Project` folder is a Project
+.
+└── Projects
+    └── A
+        └── B with Spaces
+            └── My Project
+```
+
+Given the example, the Project Tag of `My Project` would be `#projects/a/b-with-spaces/my-project`.
+
+### Project Groups
+
+Project groups are simply folders to categorize projects. For example, this project exists within the [[Projects/This Site/index|This Site]] and [[Projects/This Site/Obsidian/index|Obsidian]] project groups. [[#Projects]] are categorized through Project Group folders to make navigating my projects in Obsidian easier.
+
+A project group has an `index.md` file in its' root that acts as a landing page and dashboard. It also holds all of the Project Group metadata in its' frontmatter which is used for querying and generating hierarchical `#projects/` tags.
+
+Projects live in the root of the Project Groups, next to its' `index.md` file.
+
+#### Traits
+
+Product Groups have the following:
+- A folder with of name of the Project Group
+- An `index.md` in its' root. This should have
+	- Frontmatter:
+		- All frontmatter defined in the `Base` template
+		- `title`: This should be the same as the Project Group folder
+		- `tags`: Must include the [[#Project Group Tags|Project Group Tag]]
+	- Links to each project under it's Project Group Tag, recursively
+
+### Projects
+
+Projects are folders that represent... well, a project.
+
+Projects have an `index.md` file in their root that, like [[#Project Groups|Project Group]] `index.md` files, act as a landing page and dashboard for the project, and holds all of the Projects' metadata as frontmatter.
+
+#### Traits
+
+- Frontmatter:
+	- All frontmatter defined in the `Base` template
+	- `title`: This should be the same as the Project folder
+	- `status`: (should this be re-thought as to have dates? e.g. completed on?) One of
+		- Ideation
+		- Planning
+		- In Progress
+		- Abandoned
+		- Completed
+	- `tags`: Must include the [[#Project Tags|Project Tag]]
+
+#### Pages
+
+##### Index
+
+The index file should be generated by other files in the Project folder so that projects can maintain consistency by allowing each section to be formatted as needed, assuming they follow their requirements. Some projects will be small, others will be quite large. These projects may need to take full advantage of the six heading levels[^technical-reasons] available to me.
+
+##### Problem
+
+This file should describe the problem. The note in its' entirety will be embedded into the index file.
+
+##### Goals
+
+This should contain the goals of the project. Each goal should be defined as a top-level heading (#) as the index file will parse them and display the heading texts as a list.
+
+##### Pathfinding
+
+Pathfinding contains the investigation into the problem and the chosen solution. It should contain the following sections:
+
+###### Considered solutions
+
+Optional since sometimes the problem is simple or I already know how I want to approach a problem and don't want to evaluate alternatives.
+
+This section should contain sections on each solution under consideration and describe what they are as well as their pros and cons.
+
+###### Solution
+
+The chosen solution. The first paragraph should be a summary to be embedded in the index file. The solution should have tasks defined with the `#requirements` tag. These will be collected and displayed in the index file.
+
+##### Work Log
+
+This has no requirements. It will simply be linked to in the index file.
+
+##### Assets
+
+This also has no requirements -- it only exists to hold any assets that may be included in a file, such as an image that gets embedded.
+
+## Project Group structure generation
+
+## Project structure generation
+
+Projects exist within (potentially nested) project groups under [[Projects/index|Projects]]. For instance this project is nested under the [[Projects/This Site/index|This Site]] and [[This Site/Obsidian/index|Obsidian]] project groups.
+
+[^technical-reasons]: These documents are meant to be transformed into HTML and be read on the web. The [HTML spec](https://html.spec.whatwg.org/multipage/sections.html#the-h1,-h2,-h3,-h4,-h5,-and-h6-elements) only specifies `<h?>` elements to `<h6>`, the same level of headings that Obsidian supports. This limits what I am able to cleanly express in a single note.

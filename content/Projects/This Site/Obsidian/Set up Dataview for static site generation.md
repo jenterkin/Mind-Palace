@@ -5,5 +5,5 @@ permalink: 6E14082A-A301-40E5-8EA9-A7252EE62AFA
 draft: false
 date: 2025-01-31
 tags:
-  - project/site/obsidian
+  - projects/site/obsidian
 ---

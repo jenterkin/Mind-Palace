@@ -1,7 +1,7 @@
 ---
-title: Project Management
+title: How to Get Things Done a Holistic Framework for Thinking about Project Management
 wip: true
-draft: false
+draft: true
 tags:
   - project-management
   - leadership

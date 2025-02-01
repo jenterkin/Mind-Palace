@@ -6,9 +6,32 @@ draft: false
 date: 2025-01-31
 tags:
 ---
-This is where I keep track of all my projects for this site -- planned, completed, and abandoned.
+You can find everything about this site here from site development to Obsidian workflows.
 
-If you're interested in any and all types of updates, then you're in the right place. But if you're only interested in certain areas then you may want to explore these lists:
+# Project Management
 
-- [[tags/project/site/quartz|Quartz Customizations and Modifications]]
-- [[tags/project/site/obsidian|Obsidian Optimizations]]
+## How I approach tracking projects here
+
+- [ ] #todo This should probably be in a project management experiment
+
+I created this site for a few reasons, one of which is to freely express myself. Experimentation is a large part of self-expression, and one way I'm doing that is by trying new things with personal project management (read: "how I approach tacking projects here" really means "this is my current non-disciplined experiment on tracking a personal project").
+
+My goals in this experiment are
+- **Have a low-touch process**
+	- I expect to spend time on the plumbing and structure of project management, but after that it should not take up much time or interrupt other work.
+- **Provide exhaustive details of the entire process**
+	- Readers should understand
+		- The problem being solved / why I'm working on something
+		- What solutions I evaluated
+		- Why I landed on the chosen solution
+		- Each requirement/step of a project
+		- What I did to meet each requirement
+		- What I learned from the project
+		- What went well/okay/poor
+		- Results
+
+## Projects
+
+- [[tags/project/site|All]]
+	- [[tags/project/site/quartz|Quartz]]
+	- [[tags/project/site/obsidian|Obsidian]]
